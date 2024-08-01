@@ -17,40 +17,48 @@
             android:exported="false" />
         <activity
             android:name=".Help"
+            android:parentActivityName=".Profile"
             android:exported="false" />
         <activity
             android:name=".ViewActiveJobs"
+            android:parentActivityName=".Profile"
             android:exported="false" />
         <activity
             android:name=".AccountInformation"
+            android:parentActivityName=".Profile"
             android:exported="false" />
         <activity
             android:name=".Profile"
+            android:parentActivityName=".Home"
             android:exported="false" />
         <activity
             android:name=".CreatePost"
+            android:parentActivityName=".Home"
             android:exported="false"
             android:label="@string/title_activity_create_post" />
         <activity
             android:name=".Explore"
+            android:parentActivityName=".Home"
             android:exported="false"
             android:label="@string/title_activity_explore" />
         <activity
             android:name=".Home"
+            android:parentActivityName=".Login"
             android:exported="true"
             android:label="@string/title_activity_home" />
         <activity
             android:name=".Register"
+            android:parentActivityName=".LoginorRegister"
             android:exported="false" />
         <activity
             android:name=".Login"
+            android:parentActivityName=".LoginorRegister"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
