@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/btnActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register">
@@ -23,7 +23,7 @@
         android:inputType="text"
         android:text="Name"
         tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="249dp" />
+        tools:layout_editor_absoluteY="202dp" />
 
     <EditText
         android:id="@+id/edtSurname"
@@ -33,7 +33,7 @@
         android:inputType="text"
         android:text="Surname"
         tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="307dp" />
+        tools:layout_editor_absoluteY="262dp" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -43,7 +43,7 @@
         android:inputType="text"
         android:text="Email"
         tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="371dp" />
+        tools:layout_editor_absoluteY="323dp" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -53,7 +53,7 @@
         android:inputType="text"
         android:text="Password"
         tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="429dp" />
+        tools:layout_editor_absoluteY="384dp" />
 
     <Button
         android:id="@+id/btnSignup"
@@ -61,5 +61,14 @@
         android:layout_height="44dp"
         android:text="Sign up"
         tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="519dp" />
+        tools:layout_editor_absoluteY="534dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Would you like to signup as a Worker?"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="438dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
