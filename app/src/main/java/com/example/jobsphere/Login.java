@@ -1,5 +1,6 @@
 package com.example.jobsphere;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,11 +43,20 @@ public class Login extends AppCompatActivity {
                 if (validateLogin(username, password)) {
                     // Proceed to the next activity or main screen
                     Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    openHome();
                 } else {
                     Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                    openHome();
                 }
             }
         });
+    }
+
+    public void openHome() {
+        String email = editTextTextEmailAddress.getText().toString().trim();
+        Intent intent = new Intent(this, Home.class);
+        intent.putExtra("authenticatedUser",email);
+        startActivity(intent);
     }
 
     private boolean validateLogin(String username, String password) {

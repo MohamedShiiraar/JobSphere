@@ -8,12 +8,16 @@
     tools:context=".Register">
 
     <Button
-        android:id="@+id/btnButton"
-        android:layout_width="41dp"
-        android:layout_height="37dp"
+        android:id="@+id/btnBackLogin"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
         android:background="@drawable/backbtn"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="62dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
 
     <EditText
         android:id="@+id/edtName"
@@ -22,8 +26,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="202dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.287" />
 
     <EditText
         android:id="@+id/edtSurname"
@@ -32,8 +40,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="Surname"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="262dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.371" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -42,8 +54,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="Email"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="323dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.459" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -52,23 +68,34 @@
         android:ems="10"
         android:inputType="text"
         android:text="Password"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="384dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543" />
 
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="155dp"
         android:layout_height="44dp"
         android:text="Sign up"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="534dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.781" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/chkboxWorker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Would you like to signup as a Worker?"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="438dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
