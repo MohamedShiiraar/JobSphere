@@ -5,19 +5,19 @@ public class Job
     private int jobID;
     private String title;
     private String description;
-    private double salary;
+    private double costperhour;
     private String location;
 
     // Default constructor
     public Job() {}
 
     // Parameterized constructor
-    public Job(int jobID, String title, String description, double salary, String location)
+    public Job(int jobID, String title, String description, double costperhour, String location)
     {
         this.jobID = jobID;
         this.title = title;
         this.description = description;
-        this.salary = salary;
+        this.costperhour = costperhour;
         this.location = location;
     }
 
@@ -54,12 +54,12 @@ public class Job
 
     public double getSalary()
     {
-        return salary;
+        return costperhour;
     }
 
     public void setSalary(double salary)
     {
-        this.salary = salary;
+        this.costperhour = salary;
     }
 
     public String getLocation()
@@ -79,7 +79,7 @@ public class Job
                 "jobID=" + jobID +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", salary=" + salary +
+                ", salary=" + costperhour +
                 ", location='" + location + '\'' +
                 '}';
     }
