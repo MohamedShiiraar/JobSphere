@@ -13,11 +13,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.jobsphere.doa.UserImpl;
+
 public class Login extends AppCompatActivity {
 
     private EditText editTextTextEmailAddress;
     private EditText editTextTextPassword;
     private Button btnLogin;
+    private UserImpl userImpl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class Login extends AppCompatActivity {
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextTextPassword = findViewById(R.id.editTextTextPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        userImpl = new UserImpl(this);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btnLogin), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -46,7 +50,6 @@ public class Login extends AppCompatActivity {
                     openHome();
                 } else {
                     Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-                    openHome();
                 }
             }
         });
@@ -55,12 +58,12 @@ public class Login extends AppCompatActivity {
     public void openHome() {
         String email = editTextTextEmailAddress.getText().toString().trim();
         Intent intent = new Intent(this, Home.class);
-        intent.putExtra("authenticatedUser",email);
+        intent.putExtra("authenticatedUser", email);
         startActivity(intent);
     }
 
     private boolean validateLogin(String username, String password) {
-        // Replace this with actual login validation logic
-        return "admin".equals(username) && "password".equals(password);
+        return userImpl.login(username, password);
     }
 }
+
