@@ -1,12 +1,17 @@
+package com.example.jobsphere;
+
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsCompat.Insets;
 
 public class Register extends AppCompatActivity {
 
@@ -17,13 +22,15 @@ public class Register extends AppCompatActivity {
     private EditText editTextPassword;
     private Button btnRegister;
 
+    //private DatabaseHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
 
-        // Find views by ID
+        // Initialize views
         editTextUserID = findViewById(R.id.editTextUserID);
         editTextName = findViewById(R.id.editTextName);
         editTextSurname = findViewById(R.id.editTextSurname);
@@ -31,19 +38,22 @@ public class Register extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         btnRegister = findViewById(R.id.btnRegister);
 
+        // Initialize database helper
+        dbHelper = new DatabaseHelper(this);
+
+        // Set OnClickListener for the register button
+        btnRegister.setOnClickListener(v -> registerUser());
+
         // Apply window insets for edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btnActivity), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        // Set click listener for the register button
-        btnRegister.setOnClickListener(v -> registerUser());
     }
 
     private void registerUser() {
-        // Get user input from EditText fields
+        // Get user input
         String userID = editTextUserID.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
         String surname = editTextSurname.getText().toString().trim();
@@ -56,15 +66,26 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        // Create a new User object
-        User newUser = new User(userID, name, surname, email, password, false);
+        // Insert user data into the database
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("userID", userID);
+        values.put("name", name);
+        values.put("surname", surname);
+        values.put("email", email);
+        values.put("password", password);
+        values.put("worker", false); // Assuming default worker value is false
 
-        // For now, we simply display the user information
-        // In a real app, you'd save the user data to a database or send it to a server
-        Toast.makeText(this, "User Registered: " + newUser.toString(), Toast.LENGTH_LONG).show();
+        long newRowId = db.insert("users", null, values);
 
-        // Optionally, clear the input fields
-        clearInputFields();
+        if (newRowId != -1) {
+            Toast.makeText(this, "User Registered Successfully", Toast.LENGTH_LONG).show();
+            clearInputFields();
+        } else {
+            Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
     }
 
     private void clearInputFields() {
