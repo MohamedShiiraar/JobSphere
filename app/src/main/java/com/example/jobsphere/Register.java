@@ -58,4 +58,4 @@ public class Register extends AppCompatActivity {
         startActivity(intent);
         finish(); //prevents coming back to the screen.
     }
-}
+
