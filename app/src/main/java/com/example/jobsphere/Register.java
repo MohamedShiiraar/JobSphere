@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.jobsphere.doa.UserImpl;
 import com.example.jobsphere.model.User;
 
 public class Register extends AppCompatActivity {
@@ -45,9 +46,18 @@ public class Register extends AppCompatActivity {
                 String surname = edtSurname.getText().toString();
                 String email = edtEmail.getText().toString();
                 String password = edtPassword.getText().toString();
+                boolean worker = false;
                 if (chkboxWorker.isSelected()) {
-                    boolean worker = true;
+                    worker = true;
                 }
+                User user = new User();
+                user.setName(name);
+                user.setSurname(surname);
+                user.setEmail(email);
+                user.setPassword(password);
+                user.setWorker(worker);
+                UserImpl userDao = new UserImpl(Register.this);
+                if (userDao.register(user))
                 openLoginActivity();
             }
         });

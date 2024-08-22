@@ -36,6 +36,28 @@ public class UserImpl extends SQLiteOpenHelper {
     }
 
     //Register User Function
+    public boolean register(User user) {
+        SQLiteDatabase jobsphereDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        boolean valid = false;
+
+        contentValues.put(COLUMN_USER_FIRST_NAME, user.getName());
+        contentValues.put(COLUMN_USER_LAST_NAME, user.getSurname());
+        contentValues.put(COLUMN_USER_EMAIL_ADDRESS, user.getEmail());
+        contentValues.put(COLUMN_USER_PASSWORD, user.getPassword());
+        contentValues.put(COLUMN_USER_WORKER,user.isWorker());
+
+        //Check if email exists
+        if(isEmailExists(user.getEmail())) {
+            Toast.makeText(context.getApplicationContext(), "User already exists with this Email Address.", Toast.LENGTH_SHORT).show();
+        } else {
+            jobsphereDB.insert(USER_TABLE, null, contentValues);
+            valid = true;
+            Toast.makeText(context.getApplicationContext(), "Your account was created successfully", Toast.LENGTH_SHORT).show();
+        }
+
+        return valid;
+    }
 
 
     //
