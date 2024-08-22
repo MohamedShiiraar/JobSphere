@@ -35,7 +35,15 @@ public class UserImpl extends SQLiteOpenHelper {
     //
 
     //Login Function
+    public boolean login(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{email, password});
 
+        boolean loginSuccess = cursor.getCount() > 0;
+        closeCursor(cursor);
+        return loginSuccess;
+    }
 
     //
 
