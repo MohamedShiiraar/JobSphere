@@ -44,5 +44,10 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void moveToIntent(Intent intent) {
+        intent.putExtra("authenticatedUser", authenticatedUser);
+        startActivity(intent);
+    }
+
 
 }

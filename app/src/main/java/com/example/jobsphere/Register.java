@@ -59,6 +59,7 @@ public class Register extends AppCompatActivity {
                 UserImpl userDao = new UserImpl(Register.this);
                 if (userDao.register(user))
                 openLoginActivity();
+
             }
         });
     }

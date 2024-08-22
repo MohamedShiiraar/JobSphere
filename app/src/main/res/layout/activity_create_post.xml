@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteY="65dp" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/edtTitle"
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,29 +38,18 @@
         tools:layout_editor_absoluteY="129dp" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/edtLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Location"
+        android:text="edtLocation"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="257dp" />
+        tools:layout_editor_absoluteY="324dp" />
 
     <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Contact Number"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="321dp" />
-
-    <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/edtSalary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -68,10 +57,10 @@
         android:text="Cost per hour"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="385dp" />
+        tools:layout_editor_absoluteY="254dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnPostListing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Post Job Listing"
@@ -79,7 +68,7 @@
         tools:layout_editor_absoluteY="492dp" />
 
     <EditText
-        android:id="@+id/editTextText10"
+        android:id="@+id/edtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
