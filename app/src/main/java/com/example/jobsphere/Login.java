@@ -42,9 +42,9 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = editTextTextEmailAddress.getText().toString();
+                String email = editTextTextEmailAddress.getText().toString();
                 String password = editTextTextPassword.getText().toString();
-                if (validateLogin(username, password)) {
+                if (isValidEmail(email) && isValidPassword(password)) {
                     // Proceed to the next activity or main screen
                     Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
                     openHome();
@@ -62,8 +62,13 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private boolean validateLogin(String username, String password) {
-        return userImpl.login(username, password);
+    public boolean isValidEmail(String email) {
+        String regexPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        return email.matches(regexPattern);
+    }
+
+    public boolean isValidPassword(String password) {
+        return password.length() >= 8;
     }
 }
 

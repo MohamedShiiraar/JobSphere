@@ -21,6 +21,9 @@ public class Job
         this.location = location;
     }
 
+    public Job(String jobsId, String jobtitle, String jobDescription, double rateperhour, String areaLocated, String theUserId) {
+    }
+
     // Getters and Setters
     public int getJobID()
     {
